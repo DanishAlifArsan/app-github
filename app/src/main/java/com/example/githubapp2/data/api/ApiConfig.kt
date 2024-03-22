@@ -1,5 +1,6 @@
 package com.example.githubapp2.data.api
 
+import com.example.githubapp2.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -9,8 +10,9 @@ class ApiConfig {
     companion object {
         fun getApiService(): ApiService {
             // Define a variable to hold the Places API key.
-            val apiKey = "token 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"
-            val baseUrl = "https://api.github.com/"
+            val apiKey = BuildConfig.API_KEY
+            val baseUrl = BuildConfig.BASE_API
+
             val authInterceptor = Interceptor { chain ->
                 val req = chain.request()
                 val requestHeaders = req.newBuilder()

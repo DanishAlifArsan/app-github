@@ -14,6 +14,7 @@ import com.example.githubapp2.viewmodel.ListViewModel
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val listViewModel : ListViewModel by viewModels()
+    private var previousSearch = "1"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +27,10 @@ class MainActivity : AppCompatActivity() {
                 .editText
                 .setOnEditorActionListener { textView, actionId, event ->
                     searchView.hide()
-                    listViewModel.showUsers(searchView.text.toString())
+                    val searchQueue = if (searchView.text.isBlank()) previousSearch else searchView.text.toString()
+                    listViewModel.showUsers(searchQueue)
+                    previousSearch = searchQueue
+                    searchBar.setText(previousSearch)
                     false
                 }
         }
@@ -62,4 +66,6 @@ class MainActivity : AppCompatActivity() {
             binding.progressBar.visibility = View.GONE
         }
     }
+
+
 }
