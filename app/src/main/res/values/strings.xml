@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">GithubApp2</string>
-    <string name="username">username</string>
+    <string name="username">Username</string>
+    <string name="follower">Follower</string>
+    <string name="following">Following</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint">Search for user</string>
-    <string name="no_data">No Data</string>
+
 </resources>

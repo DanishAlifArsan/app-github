@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.annotation.StringRes
 import com.bumptech.glide.Glide
+import com.example.githubapp2.R
 import com.example.githubapp2.data.response.GithubUserResponse
 import com.example.githubapp2.databinding.ActivityUserBinding
 import com.example.githubapp2.viewmodel.UserViewModel
@@ -17,9 +19,10 @@ class UserActivity : AppCompatActivity() {
 
     companion object{
         const val USER_DATA = "user_data"
-        private val TAB_TITLES = arrayOf(
-            "Follower",
-            "Following"
+        @StringRes
+        private val TAB_TITLES = intArrayOf(
+            R.string.follower,
+            R.string.following
         )
     }
 
@@ -48,6 +51,8 @@ class UserActivity : AppCompatActivity() {
 
     private fun setUserData(user : GithubUserResponse) {
         binding.tvName.text = user.login
+        binding.tvFollower.text = "${getText(R.string.follower)} ${user.followers}"
+        binding.tvFollowing.text = "${getText(R.string.following)} ${user.following}"
         Glide.with(this)
             .load(user.avatarUrl)
             .into(binding.ivPhoto)
@@ -55,7 +60,7 @@ class UserActivity : AppCompatActivity() {
         sectionPagerAdapter.username = user.login.toString()
         binding.viewPager.adapter = sectionPagerAdapter
         TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
-            tab.text = TAB_TITLES[position]
+            tab.text = resources.getString(TAB_TITLES[position])
         }.attach()
     }
 
