@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">GithubApp2</string>
     <string name="username">Username</string>
+    <string name="name">Name</string>
     <string name="follower">Follower</string>
     <string name="following">Following</string>
     <!-- TODO: Remove or change this placeholder text -->

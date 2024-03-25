@@ -50,7 +50,8 @@ class UserActivity : AppCompatActivity() {
     }
 
     private fun setUserData(user : GithubUserResponse) {
-        binding.tvName.text = user.login
+        binding.tvName.text =  user.name?.toString()
+        binding.tvUsername.text = user.login
         binding.tvFollower.text = "${getText(R.string.follower)} ${user.followers}"
         binding.tvFollowing.text = "${getText(R.string.following)} ${user.following}"
         Glide.with(this)

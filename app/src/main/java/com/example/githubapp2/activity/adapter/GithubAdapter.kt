@@ -22,7 +22,7 @@ class GithubAdapter : ListAdapter<ItemsItem, GithubAdapter.MyViewHolder>(DIFF_CA
     }
     class MyViewHolder(val binding: GithubListLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(holder: MyViewHolder, user: ItemsItem){
-            binding.tvName.text = "${user.login}"
+            binding.tvUsername.text = "${user.login}"
             Glide.with(holder.itemView.context)
                 .load(user.avatarUrl)
                 .into(binding.ivProfile)
