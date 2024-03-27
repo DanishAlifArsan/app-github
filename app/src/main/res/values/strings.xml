@@ -8,4 +8,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint">Search for user</string>
     <string name="dark_mode">Dark mode</string>
+    <string name="insert">User added to favorite</string>
+    <string name="delete">User removed from favorite</string>
 </resources>

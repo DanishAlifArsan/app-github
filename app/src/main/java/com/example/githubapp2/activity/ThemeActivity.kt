@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.example.githubapp2.R
-import com.example.githubapp2.preference.SettingPreferences
-import com.example.githubapp2.preference.dataStore
+import com.example.githubapp2.data.preference.SettingPreferences
+import com.example.githubapp2.data.preference.dataStore
 import com.example.githubapp2.viewmodel.ThemeViewModel
 import com.example.githubapp2.viewmodel.factory.ThemeViewModelFactory
 import com.google.android.material.switchmaterial.SwitchMaterial

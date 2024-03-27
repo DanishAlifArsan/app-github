@@ -2,7 +2,7 @@ package com.example.githubapp2.viewmodel.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.githubapp2.preference.SettingPreferences
+import com.example.githubapp2.data.preference.SettingPreferences
 import com.example.githubapp2.viewmodel.ThemeViewModel
 
 class ThemeViewModelFactory(private val pref: SettingPreferences) : ViewModelProvider.NewInstanceFactory() {

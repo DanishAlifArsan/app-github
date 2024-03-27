@@ -29,6 +29,7 @@ class GithubAdapter : ListAdapter<ItemsItem, GithubAdapter.MyViewHolder>(DIFF_CA
             binding.constraintLayout.setOnClickListener {
                 val i = Intent(holder.itemView.context, UserActivity::class.java)
                 i.putExtra(UserActivity.USER_DATA, user.login)
+                i.putExtra(UserActivity.AVATAR_DATA, user.avatarUrl)
                 holder.itemView.context.startActivity(i)
             }
         }

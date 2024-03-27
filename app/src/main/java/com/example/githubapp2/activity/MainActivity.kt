@@ -9,14 +9,16 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.githubapp2.R
 import com.example.githubapp2.activity.adapter.GithubAdapter
 import com.example.githubapp2.data.response.ItemsItem
 import com.example.githubapp2.databinding.ActivityMainBinding
-import com.example.githubapp2.preference.SettingPreferences
-import com.example.githubapp2.preference.dataStore
+import com.example.githubapp2.data.preference.SettingPreferences
+import com.example.githubapp2.data.preference.dataStore
 import com.example.githubapp2.viewmodel.ListViewModel
 import com.example.githubapp2.viewmodel.ThemeViewModel
 import com.example.githubapp2.viewmodel.factory.ThemeViewModelFactory
+import javax.xml.parsers.FactoryConfigurationError
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -36,8 +38,10 @@ class MainActivity : AppCompatActivity() {
         themeViewModel.getThemeString().observe(this) {
             if (it) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                binding.fabTheme.setImageResource(R.drawable.ic_dark)
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                binding.fabTheme.setImageResource(R.drawable.ic_light)
             }
         }
 
@@ -74,6 +78,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.fabTheme.setOnClickListener{
             val i = Intent(this@MainActivity, ThemeActivity::class.java)
+            startActivity(i)
+        }
+
+        binding.fabFavorite.setOnClickListener{
+            val i = Intent(this@MainActivity, FavoriteActivity::class.java)
             startActivity(i)
         }
     }

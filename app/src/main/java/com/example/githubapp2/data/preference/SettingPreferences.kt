@@ -1,4 +1,4 @@
-package com.example.githubapp2.preference
+package com.example.githubapp2.data.preference
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -16,8 +16,8 @@ class SettingPreferences private constructor(private val dataStore: DataStore<Pr
         @Volatile
         private var INSTANCE : SettingPreferences?= null
 
-        fun getInstance(dataStore: DataStore<Preferences>) : SettingPreferences{
-            return INSTANCE?: synchronized(this) {
+        fun getInstance(dataStore: DataStore<Preferences>) : SettingPreferences {
+            return INSTANCE ?: synchronized(this) {
                 val instance = SettingPreferences(dataStore)
                 INSTANCE = instance
                 instance
